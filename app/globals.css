@@ -20,13 +20,28 @@
 }
 
 body {
-  min-height: 100vh;
-  line-height: 1.5;
+  width: 100%;
+  max-width: 85rem;
+  margin-inline: auto;
+  padding: 1.25rem;
 }
 
 h1 {
   font-size: var(--text-5xl);
   text-align: center;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+.accordion {
+  margin-top: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 
 footer {

@@ -13,7 +13,7 @@ const notoMono = Noto_Sans_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "about:source",
+  title: "about:source Probe",
   description: "User Story zur Probe- und Zusammenarbeit",
 };
 

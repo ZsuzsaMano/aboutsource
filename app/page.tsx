@@ -1,9 +1,10 @@
+import Reposatories from "@/components/Reposatories";
 import Image from "next/image";
 
 export default function Home() {
   return (
 <>
-      <header className="p-8">
+      <header>
         <Image
           className=""
           src="/as.svg"
@@ -13,8 +14,9 @@ export default function Home() {
           priority
         />
       </header>
-<main className="p-8">
+<main>
 <h1>GitHub Dashboard</h1>
+<Reposatories/>
 </main>
 <footer>Made by: Zsuzsa Lukacs {new Date().getFullYear()}</footer>
 </>
