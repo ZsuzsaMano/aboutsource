@@ -8,20 +8,20 @@ Eine Dashboard-Anwendung zur Anzeige öffentlicher Repositories der [aboutsource
 
 ### Kernfunktionen
 
-| # | Anforderung | Status |
-|---|-------------|--------|
-| 1 | Dashboard zeigt beim Seitenaufruf **alle öffentlichen GitHub-Repositories** von `https://github.com/aboutsource/` an | ⬜ |
-| 2 | Jedes Repository zeigt nur den **letzten Commit** mit der Commit-Nachricht | ⬜ |
-| 3 | Weitere Details (z.B. Commit-Autor) werden erst angezeigt, wenn das **Akkordeon-Element aufgeklappt** wird | ⬜ |
-| 4 | Repositories sind **nach dem letzten Änderungszeitpunkt sortiert** (neueste zuerst) | ⬜ |
+| #   | Anforderung                                                                                                          | Status |
+| --- | -------------------------------------------------------------------------------------------------------------------- | ------ |
+| 1   | Dashboard zeigt beim Seitenaufruf **alle öffentlichen GitHub-Repositories** von `https://github.com/aboutsource/` an | [x]    |
+| 2   | Jedes Repository zeigt nur den **letzten Commit** mit der Commit-Nachricht                                           | [x]    |
+| 3   | Weitere Details (z.B. Commit-Autor) werden erst angezeigt, wenn das **Akkordeon-Element aufgeklappt** wird           | []     |
+| 4   | Repositories sind **nach dem letzten Änderungszeitpunkt sortiert** (neueste zuerst)                                  | [x]    |
 
 ### Zuverlässigkeit & UX
 
-| # | Anforderung | Status |
-|---|-------------|--------|
-| 5 | Dashboard bleibt **verfügbar, auch wenn GitHub offline/nicht erreichbar** ist | ⬜ |
-| 6 | Zeige **möglichst aktuelle zwischengespeicherte Daten** während Ausfällen an | ⬜ |
-| 7 | Änderungen auf GitHub werden bei **Seitenaktualisierung** sichtbar, sofern GitHub erreichbar ist | ⬜ |
+| #   | Anforderung                                                                                      | Status |
+| --- | ------------------------------------------------------------------------------------------------ | ------ |
+| 5   | Dashboard bleibt **verfügbar, auch wenn GitHub offline/nicht erreichbar** ist                    | []     |
+| 6   | Zeige **möglichst aktuelle zwischengespeicherte Daten** während Ausfällen an                     | []     |
+| 7   | Änderungen auf GitHub werden bei **Seitenaktualisierung** sichtbar, sofern GitHub erreichbar ist | []     |
 
 ---
 
@@ -31,12 +31,12 @@ Eine Dashboard-Anwendung zur Anzeige öffentlicher Repositories der [aboutsource
 
 **Begründung:** Begrenzte Entwicklungszeit + frühere Erfahrung mit Next.js statt Vue
 
-| Technologie | Zweck |
-|------------|---------|
-| **Next.js** | Framework |
-| **TypeScript** | Typsicherheit |
-| **GitHub REST API** | Datenabruf |
-| **Postman** | API-Tests |
+| Technologie         | Zweck         |
+| ------------------- | ------------- |
+| **Next.js**         | Framework     |
+| **TypeScript**      | Typsicherheit |
+| **GitHub REST API** | Datenabruf    |
+| **Postman**         | API-Tests     |
 
 ---
 
@@ -62,10 +62,10 @@ Eine Dashboard-Anwendung zur Anzeige öffentlicher Repositories der [aboutsource
 
 ## 🔌 GitHub API-Endpunkte
 
-| Endpunkt | Zweck |
-|----------|---------|
-| `GET /orgs/{org}/repos` | Alle öffentlichen Repositories auflisten |
-| `GET /repos/{owner}/{repo}/commits?per_page=1` | Letzten Commit pro Repo abrufen |
+| Endpunkt                                       | Zweck                                    |
+| ---------------------------------------------- | ---------------------------------------- |
+| `GET /orgs/{org}/repos`                        | Alle öffentlichen Repositories auflisten |
+| `GET /repos/{owner}/{repo}/commits?per_page=1` | Letzten Commit pro Repo abrufen          |
 
 ---
 
@@ -75,20 +75,10 @@ Eine Dashboard-Anwendung zur Anzeige öffentlicher Repositories der [aboutsource
 
 ---
 
-
 ℹ️ Hinweise
 
 GitHub API-Ratenlimits gelten
 Für Production-Betrieb Caching-Ebenen implementieren
-
-
-
-
-
-
-
-
-
 
 ---
 
@@ -107,7 +97,6 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
 
 ## Learn More
 
