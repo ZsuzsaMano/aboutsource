@@ -15,14 +15,7 @@ export default function Home() {
   return (
     <>
       <header>
-        <Image
-          className=""
-          src="/as.svg"
-          alt="aboutsource logo"
-          width={100}
-          height={20}
-          priority
-        />
+        <Image src="/as.svg" alt="aboutsource logo" width={100} height={20} />
       </header>
       <main>
         <h1>GitHub Dashboard</h1>

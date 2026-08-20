@@ -3,6 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --border: #c7cbd2;
+  --card: #f5f7fa;
+  --accent: #dfe2e8;
+  --background: #fcfeff;
+
+  /* Radius */
+  --radius: 0.25rem;
 }
 
 @theme inline {
@@ -30,6 +38,7 @@ h1 {
   font-size: var(--text-5xl);
   text-align: center;
   font-weight: 600;
+  padding: 2rem 0;
 }
 
 h2 {
@@ -37,15 +46,31 @@ h2 {
   font-weight: 600;
 }
 
-.accordion {
-  margin-top: 1.5rem;
+h3 {
+  font-size: var(--text-l);
+}
+
+button {
+  text-align: left;
+  padding: 1rem;
+  background-color: var(--card);
+  width: 100%;
+}
+
+.content {
+  background-color: var(--background);
+  padding: 1rem;
+}
+
+.card {
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
+}
+
+.card:hover {
+  background-color: var(--accent);
 }
 
 footer {
-  border-top: 1px solid var(--border);
   padding: 2rem;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
