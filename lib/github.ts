@@ -32,6 +32,7 @@ export async function getRepositories() {
           message: commit.commit.message,
           author: commit.commit.author?.name ?? "Unknown",
           date: commit.commit.author?.date ?? "",
+          sha: commit.sha ?? "",
         },
       };
     }),
