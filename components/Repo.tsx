@@ -1,5 +1,6 @@
 import { Repository } from "@/types/repo";
 import { useState } from "react";
+import Details from "./Details";
 
 type RepositoryProps = {
   repo: Repository;
@@ -9,7 +10,7 @@ const Repo = ({ repo }: RepositoryProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <li className="card">
+    <li className="card my-2">
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
@@ -28,7 +29,7 @@ const Repo = ({ repo }: RepositoryProps) => {
         aria-labelledby={`accordion-header-${repo.id}`}
         className={!isOpen ? "hidden" : "content"}
       >
-        <div className="accordion-content">Your content here</div>
+        <Details commitDetails={repo.latestCommit} />
       </div>
     </li>
   );
