@@ -12,7 +12,7 @@ Eine Dashboard-Anwendung zur Anzeige öffentlicher Repositories der [aboutsource
 | --- | -------------------------------------------------------------------------------------------------------------------- | ------ |
 | 1   | Dashboard zeigt beim Seitenaufruf **alle öffentlichen GitHub-Repositories** von `https://github.com/aboutsource/` an | [x]    |
 | 2   | Jedes Repository zeigt nur den **letzten Commit** mit der Commit-Nachricht                                           | [x]    |
-| 3   | Weitere Details (z.B. Commit-Autor) werden erst angezeigt, wenn das **Akkordeon-Element aufgeklappt** wird           | []     |
+| 3   | Weitere Details (z.B. Commit-Autor) werden erst angezeigt, wenn das **Akkordeon-Element aufgeklappt** wird           | [x]    |
 | 4   | Repositories sind **nach dem letzten Änderungszeitpunkt sortiert** (neueste zuerst)                                  | [x]    |
 
 ### Zuverlässigkeit & UX
@@ -40,6 +40,18 @@ Eine Dashboard-Anwendung zur Anzeige öffentlicher Repositories der [aboutsource
 
 ---
 
+## Barrierefreiheit
+
+Auch wenn ich noch lerne, lege ich stets Wert darauf, meine Anwendungen barrierefrei zu gestalten. Ich habe bereits grundlegende Funktionen implementiert, darunter:
+
+- Semantisches HTML
+- ARIA-Attribute für interaktive Komponenten
+- Unterstützung der Tastaturnavigation
+- Korrekte Überschriftenstruktur
+- Ausreichender Farbkontrast
+
+---
+
 ## 📝 Implementierungsplan
 
 - [x] Anforderungsanalyse — Akzeptanzkriterien lesen und verstehen
@@ -48,15 +60,14 @@ Eine Dashboard-Anwendung zur Anzeige öffentlicher Repositories der [aboutsource
 - [x] UI-Grundgerüst — Saubere Struktur, Logo, Header, Layout-Gerüst
 - [x] API-Integration — GitHub REST API-Endpunkte in Postman testen
 - [ ] Funktions-Implementierung
-  - Repository-Auflistung
-  - Anzeige des letzten Commits
-  - Akkordeon-Komponenten
-  - Sortierlogik
-  - Offline-Caching-Strategie
+  - [x] Repository-Auflistung
+  - [x] Anzeige des letzten Commits
+  - [x] Akkordeon-Komponenten
+  - [x] Sortierlogik
+  - [ ] Offline-Caching-Strategie
 - [ ] Testing & Polierung
-  - Edge Cases
-  - Fehlerbehandlung
-  - Responsives Design
+  - [ ] Fehlerbehandlung
+  - [x] Responsives Design
 
 ---
 
