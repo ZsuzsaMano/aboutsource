@@ -4,7 +4,7 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  --border: #c7cbd2;
+  --border: #c7cbd2f3;
   --card: #f5f7fa;
   --accent: #dfe2e8;
   --background: #fcfeff;
@@ -55,6 +55,7 @@ button {
   padding: 1rem;
   background-color: var(--card);
   width: 100%;
+  cursor: pointer;
 }
 
 .content {
@@ -66,7 +67,7 @@ button {
   border: 1px solid var(--border);
 }
 
-.card:hover {
+button:hover {
   background-color: var(--accent);
 }
 
