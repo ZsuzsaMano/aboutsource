@@ -10,10 +10,10 @@ Eine Dashboard-Anwendung zur Anzeige öffentlicher Repositories der [aboutsource
 
 | #   | Anforderung                                                                                                          | Status |
 | --- | -------------------------------------------------------------------------------------------------------------------- | ------ |
-| 1   | Dashboard zeigt beim Seitenaufruf **alle öffentlichen GitHub-Repositories** von `https://github.com/aboutsource/` an | [x]    |
-| 2   | Jedes Repository zeigt nur den **letzten Commit** mit der Commit-Nachricht                                           | [x]    |
-| 3   | Weitere Details (z.B. Commit-Autor) werden erst angezeigt, wenn das **Akkordeon-Element aufgeklappt** wird           | [x]    |
-| 4   | Repositories sind **nach dem letzten Änderungszeitpunkt sortiert** (neueste zuerst)                                  | [x]    |
+| 1   | Dashboard zeigt beim Seitenaufruf **alle öffentlichen GitHub-Repositories** von `https://github.com/aboutsource/` an | ✅     |
+| 2   | Jedes Repository zeigt nur den **letzten Commit** mit der Commit-Nachricht                                           | ✅     |
+| 3   | Weitere Details (z.B. Commit-Autor) werden erst angezeigt, wenn das **Akkordeon-Element aufgeklappt** wird           | ✅     |
+| 4   | Repositories sind **nach dem letzten Änderungszeitpunkt sortiert** (neueste zuerst)                                  | ✅     |
 
 ### Zuverlässigkeit & UX
 
