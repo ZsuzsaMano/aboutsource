@@ -6,9 +6,13 @@ const octokit = new Octokit({
 });
 
 export async function getRepositories() {
+  //await new Promise((resolve) => setTimeout(resolve, 5000)); slow load test
+
   const response = await octokit.request("GET /users/{username}/repos", {
     username: "aboutsource",
     per_page: 50,
+    sort: "pushed",
+    direction: "desc",
   });
 
   const repositories: Repository[] = await Promise.all(
@@ -36,12 +40,6 @@ export async function getRepositories() {
         },
       };
     }),
-  );
-
-  repositories.sort(
-    (a, b) =>
-      new Date(b.latestCommit.date).getTime() -
-      new Date(a.latestCommit.date).getTime(),
   );
 
   return repositories;
