@@ -8,6 +8,7 @@ const octokit = new Octokit({
 
 export async function getRepositories() {
   //await new Promise((resolve) => setTimeout(resolve, 5000)); slow load test
+  "use cache";
 
   try {
     const response = await octokit.request("GET /users/{username}/repos", {
