@@ -68,6 +68,7 @@ Auch wenn ich noch lerne, lege ich stets Wert darauf, meine Anwendungen barriere
 - [ ] Testing & Polierung
   - [x] Fehlerbehandlung
   - [x] Responsives Design
+  - [x] Barrierefreiheit überprüfen
 
 ---
 
@@ -79,17 +80,6 @@ Auch wenn ich noch lerne, lege ich stets Wert darauf, meine Anwendungen barriere
 | `GET /repos/{owner}/{repo}/commits?per_page=1` | Letzten Commit pro Repo abrufen          |
 
 ---
-
-## 📦 Offline-Strategie
-
-> Dashboard bleibt verfügbar, auch wenn GitHub nicht erreichbar ist, durch Anzeige zwischengespeicherter Daten über Browser-Speichermechanismen (Service Worker / IndexedDB).
-
----
-
-ℹ️ Hinweise
-
-GitHub API-Ratenlimits gelten
-Für Production-Betrieb Caching-Ebenen implementieren
 
 ---
 
