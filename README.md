@@ -19,9 +19,9 @@ Eine Dashboard-Anwendung zur Anzeige öffentlicher Repositories der [aboutsource
 
 | #   | Anforderung                                                                                      | Status |
 | --- | ------------------------------------------------------------------------------------------------ | ------ |
-| 5   | Dashboard bleibt **verfügbar, auch wenn GitHub offline/nicht erreichbar** ist                    | []     |
-| 6   | Zeige **möglichst aktuelle zwischengespeicherte Daten** während Ausfällen an                     | []     |
-| 7   | Änderungen auf GitHub werden bei **Seitenaktualisierung** sichtbar, sofern GitHub erreichbar ist | []     |
+| 5   | Dashboard bleibt **verfügbar, auch wenn GitHub offline/nicht erreichbar** ist                    | ✅     |
+| 6   | Zeige **möglichst aktuelle zwischengespeicherte Daten** während Ausfällen an                     | ✅     |
+| 7   | Änderungen auf GitHub werden bei **Seitenaktualisierung** sichtbar, sofern GitHub erreichbar ist | ✅     |
 
 ---
 
@@ -64,9 +64,9 @@ Auch wenn ich noch lerne, lege ich stets Wert darauf, meine Anwendungen barriere
   - [x] Anzeige des letzten Commits
   - [x] Akkordeon-Komponenten
   - [x] Sortierlogik
-  - [ ] Offline-Caching-Strategie
+  - [x] Offline-Caching-Strategie
 - [ ] Testing & Polierung
-  - [ ] Fehlerbehandlung
+  - [x] Fehlerbehandlung
   - [x] Responsives Design
 
 ---
