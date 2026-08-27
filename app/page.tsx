@@ -10,7 +10,13 @@ export default function Home() {
   return (
     <>
       <header>
-        <Image src="/as.svg" alt="aboutsource logo" width={100} height={20} />
+        <Image
+          src="/as.svg"
+          alt="aboutsource logo"
+          width={100}
+          height={20}
+          loading="eager"
+        />
       </header>
       <main>
         <h1>GitHub Dashboard</h1>
@@ -30,7 +36,7 @@ export default function Home() {
           </RepositoriesErrorBoundary>
         </section>
       </main>
-      <footer>Made by: Zsuzsa Lukacs {new Date().getFullYear()}</footer>
+      <footer>Made by: Zsuzsa Lukacs</footer>
     </>
   );
 }
