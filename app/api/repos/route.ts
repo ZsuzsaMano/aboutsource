@@ -1,4 +1,4 @@
-import { getRepositories } from "@/lib/github";
+import { getRepositories } from "@/lib/getRepositories";
 import { RequestError } from "@octokit/request-error";
 
 export async function GET() {

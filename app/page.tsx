@@ -1,6 +1,6 @@
 import RepositoriesErrorBoundary from "@/components/ErrorBoundary";
 import Reposatories from "@/components/Reposatories";
-import { getRepositories } from "@/lib/github";
+import { getRepositories } from "@/lib/getRepositories";
 import Image from "next/image";
 import { Suspense } from "react";
 
