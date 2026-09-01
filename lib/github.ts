@@ -2,9 +2,30 @@ import { Repository } from "@/types/repo";
 import { Octokit } from "octokit";
 import { RequestError } from "@octokit/request-error";
 import { cacheLife } from "next/cache";
+import { throttling } from "@octokit/plugin-throttling";
 
-const octokit = new Octokit({
+const MyOctokit = Octokit.plugin(throttling);
+
+const octokit = new MyOctokit({
   auth: process.env.GITHUB_TOKEN,
+  throttle: {
+    onRateLimit: (retryAfter, options, octokit, retryCount) => {
+      octokit.log.warn(
+        `Request quota exhausted for request ${options.method} ${options.url}`,
+      );
+
+      if (retryCount < 2) {
+        octokit.log.info(`Retrying after ${retryAfter} seconds!`);
+        return true;
+      }
+    },
+    onSecondaryRateLimit: (retryAfter, options, octokit) => {
+      // does not retry, only logs a warning
+      octokit.log.warn(
+        `SecondaryRateLimit detected for request ${options.method} ${options.url}`,
+      );
+    },
+  },
 });
 
 export async function getRepositories() {
