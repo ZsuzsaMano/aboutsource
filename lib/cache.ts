@@ -2,7 +2,7 @@ import { Repository } from "@/types/repo";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
-const CACHE_FILE = path.join(process.cwd(), "data", "github-repositories.json");
+const CACHE_FILE = path.join("/tmp", "github-repositories.json");
 
 export type GithubCache = {
   repositories: Repository[];
