@@ -1,6 +1,6 @@
 import RepositoriesErrorBoundary from "@/components/ErrorBoundary";
 import Reposatories from "@/components/Reposatories";
-import { getRepositories } from "@/lib/github";
+import { getRepositories } from "@/lib/getRepositories";
 import Image from "next/image";
 import { Suspense } from "react";
 
@@ -21,7 +21,7 @@ export default function Home() {
       <main>
         <h1>GitHub Dashboard</h1>
         <section className="max-w-2xl m-auto">
-          <h2> Reposatories </h2>
+          <h2> Repositories </h2>
           <RepositoriesErrorBoundary>
             <Suspense
               fallback={
