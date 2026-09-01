@@ -11,11 +11,7 @@ const octokit = new MyOctokit({
       octokit.log.warn(
         `Request quota exhausted for request ${options.method} ${options.url}`,
       );
-
-      if (retryCount < 2) {
-        octokit.log.info(`Retrying after ${retryAfter} seconds!`);
-        return true;
-      }
+      return false;
     },
     onSecondaryRateLimit: (retryAfter, options, octokit) => {
       // does not retry, only logs a warning
@@ -46,38 +42,38 @@ export async function fetchRepositoriesFromGithub(): Promise<Repository[]> {
   );
   console.log(remainingLimit);
 
-  const repositories: Repository[] = [];
+  const repositories: Repository[] = await Promise.all(
+    response.data.map(async (repo) => {
+      const commitsResponse = await octokit.request(
+        "GET /repos/{owner}/{repo}/commits",
+        {
+          owner: GITHUB_USERNAME,
+          repo: repo.name,
+          per_page: 1,
+        },
+      );
+      console.log(`The status of the response is: ${commitsResponse.status}`);
+      console.log(`The request URL was: ${commitsResponse.url}`);
+      console.log(
+        `The x-ratelimit-remaining commitsResponse header is: ${commitsResponse.headers["x-ratelimit-remaining"]}`,
+      );
 
-  for (const repo of response.data) {
-    const commitsResponse = await octokit.request(
-      "GET /repos/{owner}/{repo}/commits",
-      {
-        owner: GITHUB_USERNAME,
-        repo: repo.name,
-        per_page: 1,
-      },
-    );
-    console.log(`The status of the response is: ${commitsResponse.status}`);
-    console.log(`The request URL was: ${commitsResponse.url}`);
-    console.log(
-      `The x-ratelimit-remaining commitsResponse header is: ${commitsResponse.headers["x-ratelimit-remaining"]}`,
-    );
+      const commit = commitsResponse.data[0];
 
-    const commit = commitsResponse.data[0];
+      console.log("commit.commit.message,", commit.commit.message);
 
-    console.log("commit.commit.message,", commit.commit.message);
-
-    repositories.push({
-      id: repo.id,
-      name: repo.name,
-      url: repo.html_url,
-      latestCommit: {
-        message: commit.commit.message,
-        author: commit.commit.author?.name ?? "Unknown",
-        date: commit.commit.author?.date ?? "",
-        sha: commit.sha ?? "",
-      },
-    });
-  }
+      return {
+        id: repo.id,
+        name: repo.name,
+        url: repo.html_url,
+        latestCommit: {
+          message: commit.commit.message,
+          author: commit.commit.author?.name ?? "Unknown",
+          date: commit.commit.author?.date ?? "",
+          sha: commit.sha ?? "",
+        },
+      };
+    }),
+  );
   return repositories;
 }
