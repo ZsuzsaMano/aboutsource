@@ -28,16 +28,19 @@ const octokit = new MyOctokit({
   },
 });
 
+const GITHUB_USERNAME = "ZsuzsaMano";
+
 export async function getRepositories() {
   "use cache";
 
   cacheLife({
+    stale: 0,
     revalidate: 60,
   });
 
   try {
     const response = await octokit.request("GET /users/{username}/repos", {
-      username: "ZsuzsaMano",
+      username: GITHUB_USERNAME,
       per_page: 50,
       sort: "pushed",
       direction: "desc",
@@ -62,7 +65,7 @@ export async function getRepositories() {
         const commitsResponse = await octokit.request(
           "GET /repos/{owner}/{repo}/commits",
           {
-            owner: "ZsuzsaMano",
+            owner: GITHUB_USERNAME,
             repo: repo.name,
             per_page: 1,
           },
