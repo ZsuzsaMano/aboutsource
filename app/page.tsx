@@ -21,7 +21,7 @@ export default function Home() {
       <main>
         <h1>GitHub Dashboard</h1>
         <section className="max-w-2xl m-auto">
-          <h2> Reposatories </h2>
+          <h2> Repositories </h2>
           <RepositoriesErrorBoundary>
             <Suspense
               fallback={
