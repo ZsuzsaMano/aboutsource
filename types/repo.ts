@@ -2,6 +2,7 @@ export type Repository = {
   id: number | bigint;
   name: string;
   url: string;
+  pushed_at: string | null | undefined;
   latestCommit: CommitDetails;
 };
 

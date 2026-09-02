@@ -1,6 +1,7 @@
 import { Repository } from "@/types/repo";
 import { Octokit } from "octokit";
 import { throttling } from "@octokit/plugin-throttling";
+import { readCache } from "./cache";
 
 const MyOctokit = Octokit.plugin(throttling);
 
@@ -31,6 +32,16 @@ export async function fetchRepositoriesFromGithub(): Promise<Repository[]> {
     sort: "pushed",
     direction: "desc",
   });
+
+  const cached = await readCache();
+
+  if (
+    cached &&
+    response.data[0].pushed_at === cached.repositories[0].pushed_at
+  ) {
+    console.log(`Using cached repositories from ${cached.updatedAt}`);
+    return cached.repositories;
+  }
 
   const remainingLimit = response.headers["x-ratelimit-remaining"]
     ? parseInt(response.headers["x-ratelimit-remaining"])
@@ -66,6 +77,7 @@ export async function fetchRepositoriesFromGithub(): Promise<Repository[]> {
         id: repo.id,
         name: repo.name,
         url: repo.html_url,
+        pushed_at: repo.pushed_at,
         latestCommit: {
           message: commit.commit.message,
           author: commit.commit.author?.name ?? "Unknown",
