@@ -1,7 +1,7 @@
 import { Repository } from "@/types/repo";
 import { Octokit } from "octokit";
 import { RequestError } from "@octokit/request-error";
-import { cacheLife } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { throttling } from "@octokit/plugin-throttling";
 
 const MyOctokit = Octokit.plugin(throttling);
@@ -33,10 +33,8 @@ const GITHUB_USERNAME = "ZsuzsaMano";
 export async function getRepositories() {
   "use cache";
 
-  cacheLife({
-    stale: 0,
-    revalidate: 60,
-  });
+  cacheTag("repositories");
+  cacheLife({ stale: 0, revalidate: 300, expire: 3600 });
 
   try {
     const response = await octokit.request("GET /users/{username}/repos", {

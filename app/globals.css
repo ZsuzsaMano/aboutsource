@@ -58,6 +58,31 @@ button {
   cursor: pointer;
 }
 
+.refreshButton {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0.105vw 0.105vw rgb(163, 188, 219);
+  background-color: #d2ddeb;
+  width: 7vw;
+  height: 2vw;
+  border-radius: 0.315vw;
+  font-weight: bolder;
+  line-height: 3vw;
+  text-align: center;
+  transition:
+    0.7s ease-in-out transform,
+    0.7s ease-in-out;
+}
+
+.refreshButton:hover {
+  color: red;
+  transition:
+    0.7s ease-in-out transform,
+    0.7s ease-in-out;
+}
+
 .content {
   background-color: var(--background);
   padding: 1rem;
