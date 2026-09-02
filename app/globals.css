@@ -47,7 +47,7 @@ h2 {
 }
 
 h3 {
-  font-size: var(--text-l);
+  font-size: var(--text-base);
 }
 
 button {
@@ -76,4 +76,26 @@ footer {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--muted);
+}
+
+@media (max-width: 800px) {
+  body {
+    padding: 0.25rem;
+  }
+
+  h1 {
+    font-size: var(--text-3xl);
+    text-align: center;
+    font-weight: 600;
+    padding: 2rem 0;
+  }
+
+  h2 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: var(--text-base);
+  }
 }
