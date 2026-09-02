@@ -23,7 +23,7 @@ const octokit = new MyOctokit({
   },
 });
 
-const GITHUB_USERNAME = "ZsuzsaMano";
+const GITHUB_USERNAME = "aboutsource";
 
 export async function fetchRepositoriesFromGithub(): Promise<Repository[]> {
   const response = await octokit.request("GET /users/{username}/repos", {
