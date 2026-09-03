@@ -20,13 +20,6 @@
   --font-mono: var(--font-noto-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   width: 100%;
   max-width: 85rem;
@@ -48,6 +41,12 @@ h2 {
 
 h3 {
   font-size: var(--text-base);
+}
+
+dt,
+dd {
+  font-size: 0.875rem;
+  color: #101828;
 }
 
 button {

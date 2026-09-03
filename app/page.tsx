@@ -26,7 +26,7 @@ export default function Home() {
             <Suspense
               fallback={
                 <>
-                  <p className="animate-spin inline-block my-8 mx-2">↻</p>{" "}
+                  <p className="animate-spin inline-block my-8 mx-2">↻</p>
                   <span>Loading list of repos</span>
                 </>
               }
