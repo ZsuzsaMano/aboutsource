@@ -12,3 +12,8 @@ export type CommitDetails = {
   date: string;
   sha: string;
 };
+
+export type GithubCache = {
+  repositories: Repository[];
+  updatedAt: string;
+};
