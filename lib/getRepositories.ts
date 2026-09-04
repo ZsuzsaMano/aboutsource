@@ -6,9 +6,11 @@ export async function getRepositories(): Promise<Repository[]> {
   const cached = await readCache();
 
   try {
-    const repositories = await fetchRepositoriesFromGithub();
+    const { repositories, changed } = await fetchRepositoriesFromGithub();
 
-    await writeCache(repositories);
+    if (changed) {
+      await writeCache(repositories);
+    }
 
     return repositories;
   } catch (error) {

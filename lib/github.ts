@@ -25,7 +25,10 @@ const octokit = new MyOctokit({
 
 const GITHUB_USERNAME = "aboutsource";
 
-export async function fetchRepositoriesFromGithub(): Promise<Repository[]> {
+export async function fetchRepositoriesFromGithub(): Promise<{
+  repositories: Repository[];
+  changed: boolean;
+}> {
   const response = await octokit.request("GET /users/{username}/repos", {
     username: GITHUB_USERNAME,
     per_page: 50,
@@ -40,7 +43,7 @@ export async function fetchRepositoriesFromGithub(): Promise<Repository[]> {
     response.data[0].pushed_at === cached.repositories[0].pushed_at
   ) {
     console.log(`Using cached repositories from ${cached.updatedAt}`);
-    return cached.repositories;
+    return { repositories: cached.repositories, changed: false };
   }
 
   const remainingLimit = response.headers["x-ratelimit-remaining"]
@@ -54,6 +57,7 @@ export async function fetchRepositoriesFromGithub(): Promise<Repository[]> {
   console.log(remainingLimit);
 
   const repositories: Repository[] = await Promise.all(
+    //TODO look up if github allows parallel fetch
     response.data.map(async (repo) => {
       const commitsResponse = await octokit.request(
         "GET /repos/{owner}/{repo}/commits",
@@ -87,5 +91,5 @@ export async function fetchRepositoriesFromGithub(): Promise<Repository[]> {
       };
     }),
   );
-  return repositories;
+  return { repositories: repositories, changed: true };
 }
