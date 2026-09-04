@@ -4,6 +4,14 @@ Eine Dashboard-Anwendung zur Anzeige öffentlicher Repositories der [aboutsource
 
 ---
 
+## TODO
+
+- write tests
+- move cache to Redis
+- apply Domain Driven Design
+
+---
+
 ## 📋 Akzeptanzkriterien
 
 ### Kernfunktionen
