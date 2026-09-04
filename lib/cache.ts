@@ -1,17 +1,13 @@
-import { Repository } from "@/types/repo";
-import { promises as fs } from "node:fs";
+import { GithubCache, Repository } from "@/types/repo";
+import { promises as fsa } from "node:fs";
+import fs from "fs";
 import path from "node:path";
 
 const CACHE_FILE = path.join("/tmp", "github-repositories.json");
 
-export type GithubCache = {
-  repositories: Repository[];
-  updatedAt: string;
-};
-
 export async function readCache(): Promise<GithubCache | null> {
   try {
-    const file = await fs.readFile(CACHE_FILE, "utf8");
+    const file = await fsa.readFile(CACHE_FILE, "utf8");
 
     return JSON.parse(file) as GithubCache;
   } catch {
@@ -20,7 +16,7 @@ export async function readCache(): Promise<GithubCache | null> {
 }
 
 export async function writeCache(repositories: Repository[]): Promise<void> {
-  await fs.mkdir(path.dirname(CACHE_FILE), {
+  await fsa.mkdir(path.dirname(CACHE_FILE), {
     recursive: true,
   });
 
@@ -29,5 +25,5 @@ export async function writeCache(repositories: Repository[]): Promise<void> {
     updatedAt: new Date().toISOString(),
   };
 
-  await fs.writeFile(CACHE_FILE, JSON.stringify(cache, null, 2), "utf8");
+  fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2), "utf8");
 }
